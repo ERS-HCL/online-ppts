@@ -80,14 +80,40 @@
 				</section>
 				<section>
 					<h2>REST vs GRAPHQL</h2>
-					<span>
-						<img width="400" height="500" data-src="./assets/REST.png" alt="REST">
-						<img width="400" height="500" data-src="./assets/graphql.png" alt="GRAPHQL">
-					</span>
+
+					<img data-src="./assets/graphql.png" alt="GRAPHQL">
+
 				</section>
 				<section>
-					<h2>GraphQL Schema</h2>
-					<p>Slides can be nested inside of each other.</p>
+					<h2>GraphQL Schema definition Language (SDL)</h2>
+					<ul>
+						<li>
+							<b>root types:</b> Query (Read), Mutation(Write), Subscription(Data Event)</li>
+						<li>
+							<b>scalar types:</b> Int, Float, String, Boolean, ID, Enum (specific set of values)</li>
+						<li>Each field in a GraphQL schema is backed by a resolver
+							<b>having the same type</b>
+						</li>
+						<li>
+							<a href="https://github.com/ERS-HCL/nxplorerjs-microservice-starter/tree/master/server/graphql" target="_blank">Sample Schema walkthrough</a>.</li>
+					</ul>
+
+					<aside class="notes">
+						The ID scalar type represents a unique identifier, often used to refetch an object or as the key for a cache. The ID type
+						is serialized in the same way as a String; however, defining it as an ID signifies that it is not intended to be human‐readable.
+						Also called Enums, enumeration types are a special kind of scalar that is restricted to a particular set of allowed
+						values.
+					</aside>
+				</section>
+				<section>
+					<h2>GraphQL Key advantages</h2>
+					<ul>
+						<li>Cleaner data retrival, no adhoc endpoints, lower round trips</li>
+						<li>Granular control over data. </li>
+						<li>Parallel execution of resource backend requests. Data even for partially failed requests</li>
+						<li>Service Caching potential per request , per across requests, batch processing of requests</li>
+						<li>Graceful handling of errors, failures</li>
+					</ul>
 				</section>
 			</section>
 
