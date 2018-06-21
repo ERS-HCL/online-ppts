@@ -20,6 +20,13 @@
   border: 2px dashed #ccc;
   min-height: 170px;
 }
+#image {
+  background-color: white;
+  overflow: hidden;
+  object-fit: cover;
+  border: 2px dashed #ccc;
+  min-height: 400px;
+}
 #subsection {
   font-size: medium;
 }
@@ -31,4 +38,12 @@
     border: 0;
     border-bottom: 2px solid #000;
   }
+}
+
+#imagetext {
+  font-size: 0.5em;
+}
+
+#long-list {
+  font-size: 0.8em;
 }

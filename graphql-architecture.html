@@ -4,10 +4,10 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>reveal.js – The HTML Presentation Framework</title>
+	<title>GraphQL Architecture Patterns</title>
 
-	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-	<meta name="author" content="Hakim El Hattab">
+	<meta name="description" content="A look at GraphQL Architecture and Usage Patterns">
+	<meta name="author" content="Tarun Kumar Sukhu">
 
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -134,7 +134,8 @@
 								</li>
 								<li>Client Side State Management – Apollo Link State</li>
 								<li>Support for React, Angular , Vue</li>
-
+								<li>
+									<a href="https://github.com/ERS-HCL/react-git-explorer" target="_blank">Sample Apollo client project walkthrough</a>.</li>
 							</ul>
 						</div>
 						<div id="two">
@@ -146,7 +147,7 @@
 
 				<section>
 					<h3>GraphQL Key advantages</h3>
-					<ul>
+					<ul class="long-list">
 						<li>Cleaner data retrival,
 							<b>no adhoc endpoints, lower round trips</b>
 						</li>
@@ -159,10 +160,95 @@
 							<b>Service Caching</b> potential per request , per across requests, batch processing of requests</li>
 						<li>
 							<b>Graceful handling</b> of errors, failures</li>
+						<li>
+							<b>Organic versioning: </b>Simply add fields when you need or mark them as deprecated when you plan to stop using them.</li>
+					</ul>
 					</ul>
 				</section>
 			</section>
+			<section>
+				<section>
+					<h2>Common GraphQL Architecture Patterns</h2>
+				</section>
+				<section>
+					<h3>API Gateway</h3>
+					<!-- 					<div class="sidebyside">
+						<div id="one">
+							ssss
+						</div> -->
+					<div id="image">
+						<img class="plain" data-src="https://i.stack.imgur.com/BrnFy.png" alt="API Gateway">
+					</div>
+					<p id="imagetext">Slides can be nested inside of each other.</p>
+					<!-- 					</div> -->
+				</section>
+				<section>
+					<h3>Serverless Architecture</h3>
+					<div class="sidebyside">
+						<div id="one">
+							<ul class="long-list">
+								<li>API Gateway + Lambda backend (Setup GraphQL on Lambda)</li>
+								<li>Can use
+									<b>any serverless provider</b> (Microsoft Azure, Google Cloud Functions, etc.) with GraphQL</li>
+								<li>Setup
+									<b>Lambda function handler</b> to route HTTP requests and return the response.</li>
+								<li>Define you
+									<b>GraphQL schema</b>
+								</li>
+								<li>Setup
+									<b>resolver functions</b> to fetch data from other service (RDS, REST, DynamoDB) </li>
+							</ul>
 
+						</div>
+						<div id="two">
+							<img class="plain" data-src="https://user-images.githubusercontent.com/1587005/36035218-1c06763c-0d6b-11e8-996b-996243b0975f.png"
+							 alt="API Gateway">
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>Serverless Architecture with AppSync</h3>
+					<div class="sidebyside">
+						<div id="one">
+							<ul id="long-list">
+								<li>AWS AppSync is a fully managed Serverless GraphQL service for real-time data queries, synchronization, communications
+									and offline programming features.</li>
+								<li>Used for
+									<b>large scale real-time data subscriptions</b>
+								</li>
+								<li>Provides data updates for offline users as soon as they reconnect</li>
+								<li>AppSync Client uses Apollo Client 2.0 under the hood to simplify user authentication, manage offline logic and support
+									real-time subscriptions</li>
+							</ul>
+
+						</div>
+						<div id="two">
+							<img class="plain" data-src="assets/appsync.png" alt="API Gateway">
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>Serverless Architecture with AppSync</h3>
+					<div class="sidebyside">
+						<div id="one">
+							<ul id="long-list">
+								<li>the new gateway layer will be a really great place to do stitching</li>
+								<li>Used for
+									<b>large scale real-time data subscriptions</b>
+								</li>
+								<li>Provides data updates for offline users as soon as they reconnect</li>
+								<li>AppSync Client uses Apollo Client 2.0 under the hood to simplify user authentication, manage offline logic and support
+									real-time subscriptions</li>
+							</ul>
+
+						</div>
+						<div id="two">
+							<img class="plain" data-src="assets/schema-stitching-graphql.png" alt="API Gateway">
+						</div>
+					</div>
+				</section>
+
+			</section>
 			<!-- Example of nested vertical slides -->
 			<section>
 				<section>
