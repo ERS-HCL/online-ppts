@@ -15,10 +15,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+	<link rel="stylesheet" href="css/theme/sky.css" id="theme">
 
 	<!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- custom styles -->
+	<link rel="stylesheet" href="lib/css/ershcl.css">
 
 	<!-- Printing and PDF exports -->
 	<script>
@@ -63,7 +66,7 @@
 					</p>
 				</section>
 				<section id="fragments">
-					<h2>GRAPHQL</h2>
+					<h3>GRAPHQL</h3>
 					<p class="fragment">An
 						<b>API specification</b> by Facebook</p>
 					<p class="fragment">Provides
@@ -79,13 +82,13 @@
 					</aside>
 				</section>
 				<section>
-					<h2>REST vs GRAPHQL</h2>
+					<h3>REST vs GRAPHQL</h3>
 
-					<img data-src="./assets/graphql.png" alt="GRAPHQL">
+					<img class="plain" data-src="./assets/graphql.png" alt="GRAPHQL">
 
 				</section>
 				<section>
-					<h2>GraphQL Schema definition Language (SDL)</h2>
+					<h3>GraphQL Schema definition Language (SDL)</h3>
 					<ul>
 						<li>
 							<b>root types:</b> Query (Read), Mutation(Write), Subscription(Data Event)</li>
@@ -106,13 +109,56 @@
 					</aside>
 				</section>
 				<section>
-					<h2>GraphQL Key advantages</h2>
+					<h3>GraphQL Highlevel View</h3>
+
+					<img class="plain" width="800" height="500" data-src="./assets/graphql-highlevel-view.png" alt="GRAPHQL">
+
+				</section>
+				<section>
+					<h3>Client Side View</h3>
+
+					<div class="sidebyside">
+						<div id="one">
+							<ul>
+								<li>Support for multiple different functionality modules as part of Apollo Links
+									<ul id="subsection">
+										<li>Caching</li>
+										<li>Diverse Transports</li>
+										<li>Live Queries</li>
+										<li>Retries</li>
+										<li>Pagination </li>
+										<li>Prefetching Data</li>
+										<li>State Management
+										</li>
+									</ul>
+								</li>
+								<li>Client Side State Management – Apollo Link State</li>
+								<li>Support for React, Angular , Vue</li>
+
+							</ul>
+						</div>
+						<div id="two">
+							<img class="plain" data-src="./assets/Apollo-client.png" alt="Appllo Client">
+						</div>
+					</div>
+				</section>
+
+
+				<section>
+					<h3>GraphQL Key advantages</h3>
 					<ul>
-						<li>Cleaner data retrival, no adhoc endpoints, lower round trips</li>
-						<li>Granular control over data. </li>
-						<li>Parallel execution of resource backend requests. Data even for partially failed requests</li>
-						<li>Service Caching potential per request , per across requests, batch processing of requests</li>
-						<li>Graceful handling of errors, failures</li>
+						<li>Cleaner data retrival,
+							<b>no adhoc endpoints, lower round trips</b>
+						</li>
+						<li>
+							<b>Granular control</b> over data. </li>
+						<li>
+							<b>Parallel execution</b> of resource backend requests. Data even for
+							<i>partially failed</i> requests</li>
+						<li>
+							<b>Service Caching</b> potential per request , per across requests, batch processing of requests</li>
+						<li>
+							<b>Graceful handling</b> of errors, failures</li>
 					</ul>
 				</section>
 			</section>
