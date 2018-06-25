@@ -15,7 +15,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+	<link rel="stylesheet" href="css/theme/night.css" id="theme">
 
 	<!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -52,10 +52,8 @@
 					</small>
 
 				</p>
-				<p>
-					<img class="plain" data-src="./assets/tfg.png" alt="TFG">
-					<img class="plain" data-src="./assets/hcl.png" alt="Down arrow">
-				</p>
+				<img class="plain" style="background-color: white; height: 80px;" data-src="./assets/tfg.png" alt="TFG">
+				<img class="plain" style="background-color: white; height: 80px;" data-src="./assets/hcl.png" alt="Down arrow">
 			</section>
 
 			<section>
@@ -167,7 +165,7 @@
 
 				<section>
 					<h3>GraphQL Key advantages</h3>
-					<ul class="long-list">
+					<ul id="long-list">
 						<li>Cleaner data retrival,
 							<b>no adhoc endpoints, lower round trips</b>
 						</li>
@@ -311,7 +309,7 @@
 					<h4>Serverless Architecture</h4>
 					<div class="sidebyside">
 						<div id="one">
-							<ul class="long-list">
+							<ul id="long-list-2">
 								<li>API Gateway + Lambda backend (Setup GraphQL on Lambda)</li>
 								<li>Can use
 									<b>any serverless provider</b> (Microsoft Azure, Google Cloud Functions, etc.) with GraphQL</li>
@@ -335,7 +333,7 @@
 					<h4>Serverless Architecture with AppSync</h4>
 					<div class="sidebyside">
 						<div id="one">
-							<ul id="long-list">
+							<ul id="long-list-2">
 								<li>AWS AppSync is a fully managed Serverless GraphQL service for real-time data queries, synchronization, communications
 									and offline programming features.</li>
 								<li>Used for
@@ -356,7 +354,7 @@
 					<h4>Schema Stiching at the API Gatway Layer</h4>
 					<div class="sidebyside">
 						<div id="one">
-							<ul id="long-list">
+							<ul id="long-list-2">
 								<li>New gateway layer a great place to do stitching</li>
 								<li>Connect to multiple downstream graphql servers and distributed schemas</li>
 								<li>Resolvers delegate schema resolution calls to distributed GraphQL Servers</li>
@@ -419,7 +417,7 @@
 					<h4>PostGraphile (GraphQL for PostGres) & Neo4J GraphQL extension</h4>
 					<div class="sidebyside">
 						<div id="one">
-							<ul id="long-list">
+							<ul id="long-list-2">
 								<li>
 									<b>PostGraphile: </b> Takes your PostGres database schema and turns it into GraphQL API without any extra work</li>
 								<li>
@@ -454,7 +452,7 @@
 					<h3>Prisma Add GraphQL support to backend databases</h3>
 					<div class="sidebyside">
 						<div id="one">
-							<ul id="long-list">
+							<ul id="long-list-2">
 								<li>
 									Prisma is a performant open-source GraphQL ORM-like layer doing the heavy lifting in your GraphQL server.</li>
 								<li>
@@ -472,8 +470,9 @@
 							</ul>
 						</div>
 						<div id="two">
-							<img class="plain" data-src="https://cdn.changelog.com/uploads/news_items/DdVj/large.png?v=63693702304" alt="Headless CMS">
-							<img class="plain" data-src="https://www.graph.cool/forum/uploads/default/original/2X/c/ce905bd0e3fd5d0fb559ad7c23840a81187562ee.png"
+							<img class="plain" style="height: 180px;" data-src="https://cdn.changelog.com/uploads/news_items/DdVj/large.png?v=63693702304"
+							 alt="Headless CMS">
+							<img class="plain" style="height: 180px;" data-src="https://www.graph.cool/forum/uploads/default/original/2X/c/ce905bd0e3fd5d0fb559ad7c23840a81187562ee.png"
 							 alt="Headless CMS">
 						</div>
 					</div>

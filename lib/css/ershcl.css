@@ -1,7 +1,6 @@
 .sidebyside {
   border: 2px solid #000;
   overflow: hidden;
-  min-width: 1000px;
 }
 
 .sidebyside div {
@@ -10,14 +9,14 @@
 }
 #one {
   float: left;
-  margin-right: 20px;
-  width: 450px;
+  margin-right: 10px;
+  width: 400px;
   font-size: 0.7em;
 }
 #two {
   background-color: white;
   overflow: hidden;
-  margin: 10px;
+  margin: 5px;
   border: 2px dashed #ccc;
   min-height: 170px;
 }
@@ -31,7 +30,7 @@
 #subsection {
   font-size: medium;
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 400px) {
   #one {
     float: none;
     margin-right: 0;
@@ -51,4 +50,12 @@
 
 #long-list-2 {
   font-size: 0.7em;
+}
+
+#logo {
+  background-color: white;
+  overflow: hidden;
+  margin: 5px;
+  border: 2px dashed #ccc;
+  height: 100px;
 }
