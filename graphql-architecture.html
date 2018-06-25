@@ -64,6 +64,8 @@
 					<p>
 						What is GraphQL ? Why all the hype ?
 					</p>
+					<img class="plain" width="800" height="400" data-src="https://user-images.githubusercontent.com/1587005/36067514-503a05b4-0e73-11e8-9b40-946c5398f4b5.png"
+					/>
 				</section>
 				<section id="fragments">
 					<h3>GRAPHQL</h3>
@@ -356,8 +358,8 @@
 						<div id="one">
 							<ul id="long-list">
 								<li>New gateway layer a great place to do stitching</li>
-								<li>Connect to multiple downstream graphql servers and distributed schemas
-								</li>
+								<li>Connect to multiple downstream graphql servers and distributed schemas</li>
+								<li>Resolvers delegate schema resolution calls to distributed GraphQL Servers</li>
 								<li>Frontend specific schema stitched together at the API Layer</li>
 							</ul>
 
@@ -428,7 +430,7 @@
 								</li>
 								<li>
 									It leverages graphile-build's
-									<b>look-ahead</b> features when resolving a GraphQL request
+									<b>look-ahead (Solves N+1 issue)</b> features when resolving a GraphQL request
 								</li>
 								<li>
 									<b>Result: </b>A single root level query, no matter how nested, is compiled into just one SQL query.
@@ -460,7 +462,7 @@
 									APIs.
 								</li>
 								<li>
-									Based on OpenCRUD and supports multiple databases via connectors. Currently supported MySQL</li>
+									Based on OpenCRUD and supports multiple databases via connectors. Currently supported MySQL. </li>
 								<li>
 									Acts as a data access layer in your backend architecture by connecting your API server to your databases
 								</li>
@@ -476,364 +478,74 @@
 						</div>
 					</div>
 				</section>
-			</section>
-			<!-- Example of nested vertical slides -->
-			<section>
 				<section>
-					<h2>Vertical Slides</h2>
-					<p>Slides can be nested inside of each other.</p>
-					<p>Use the
-						<em>Space</em> key to navigate through all slides.</p>
-					<br>
-					<a href="#" class="navigate-down">
-						<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-					</a>
-				</section>
-				<section>
-					<h2>Basement Level 1</h2>
-					<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-				</section>
-				<section>
-					<h2>Basement Level 2</h2>
-					<p>That's it, time to go back up.</p>
-					<br>
-					<a href="#/2">
-						<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-					</a>
-				</section>
-			</section>
-
-			<section>
-				<h2>Slides</h2>
-				<p>
-					Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at
-					<a href="https://slides.com" target="_blank">https://slides.com</a>.
-				</p>
-			</section>
-
-			<section>
-				<h2>Point of View</h2>
-				<p>
-					Press
-					<strong>ESC</strong> to enter the slide overview.
-				</p>
-				<p>
-					Hold down alt and click on any element to zoom in on it using
-					<a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-				</p>
-			</section>
-
-			<section>
-				<h2>Touch Optimized</h2>
-				<p>
-					Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-				</p>
-			</section>
-
-			<section data-markdown>
-				<script type="text/template">
-						## Markdown support
-
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-			</section>
-
-			<section>
-				<section id="fragments">
-					<h2>Fragments</h2>
-					<p>Hit the next arrow...</p>
-					<p class="fragment">... to step through ...</p>
-					<p>
-						<span class="fragment">... a</span>
-						<span class="fragment">fragmented</span>
-						<span class="fragment">slide.</span>
-					</p>
-
-					<aside class="notes">
-						This slide has fragments which are also stepped through in the notes window.
-					</aside>
-				</section>
-				<section>
-					<h2>Fragment Styles</h2>
-					<p>There's different types of fragments, like:</p>
-					<p class="fragment grow">grow</p>
-					<p class="fragment shrink">shrink</p>
-					<p class="fragment fade-out">fade-out</p>
-					<p class="fragment fade-up">fade-up (also down, left and right!)</p>
-					<p class="fragment current-visible">current-visible</p>
-					<p>Highlight
-						<span class="fragment highlight-red">red</span>
-						<span class="fragment highlight-blue">blue</span>
-						<span class="fragment highlight-green">green</span>
-					</p>
-				</section>
-			</section>
-
-			<section id="transitions">
-				<h2>Transition Styles</h2>
-				<p>
-					You can select from different transitions, like:
-					<br>
-					<a href="?transition=none#/transitions">None</a> -
-					<a href="?transition=fade#/transitions">Fade</a> -
-					<a href="?transition=slide#/transitions">Slide</a> -
-					<a href="?transition=convex#/transitions">Convex</a> -
-					<a href="?transition=concave#/transitions">Concave</a> -
-					<a href="?transition=zoom#/transitions">Zoom</a>
-				</p>
-			</section>
-
-			<section id="themes">
-				<h2>Themes</h2>
-				<p>
-					reveal.js comes with a few themes built in:
-					<br>
-					<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-					<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-					<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-					<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-					<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-					<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-					<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a>
-					<br>
-					<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-					<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
-					<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-					<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-					<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-				</p>
-			</section>
-
-			<section>
-				<section data-background="#dddddd">
-					<h2>Slide Backgrounds</h2>
-					<p>
-						Set
-						<code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
-					</p>
-					<a href="#" class="navigate-down">
-						<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-					</a>
-				</section>
-				<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-					<h2>Image Backgrounds</h2>
-					<pre><code class="hljs">&lt;section data-background="image.png"&gt;</code></pre>
-				</section>
-				<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat"
-				 data-background-size="100px">
-					<h2>Tiled Backgrounds</h2>
-					<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-				</section>
-				<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm"
-				 data-background-color="#000000">
-					<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-						<h2>Video Backgrounds</h2>
-						<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
+					<h3>Apollo Engine - Cloud Hosted GraphQL gateway</h3>
+					<div class="sidebyside">
+						<div id="one">
+							<ul id="long-list">
+								<li>
+									Engine sits between your clients and your GraphQL serve</li>
+								<li>
+									Delivers query caching, error tracking, automatic persisted queries, execution tracing, and schema analytics
+								</li>
+								<li>Two parts:
+									<ul>
+										<li>
+											<b>Engine Proxy: </b> sends aggregated data to the Engine Service</li>
+										<li>
+											<b>Engine Service: </b> cloud based management UI for Engine</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div id="two">
+							<img class="plain" data-src="https://www.apollographql.com/docs/engine/img/engine-architecture.svg" alt="Apollo Engine">
+						</div>
 					</div>
 				</section>
-				<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-					<h2>... and GIFs!</h2>
-				</section>
 			</section>
-
-			<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-				<h2>Background Transitions</h2>
-				<p>
-					Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-				</p>
-				<pre><code class="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-			</section>
-
-			<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-				<h2>Background Transitions</h2>
-				<p>
-					You can override background transitions per-slide.
-				</p>
-				<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-			</section>
-
 			<section>
-				<h2>Pretty Code</h2>
-				<pre><code class="hljs" data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-				<p>Code syntax highlighting courtesy of
-					<a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-			</section>
-
-			<section>
-				<h2>Marvelous List</h2>
-				<ul>
-					<li>No order here</li>
-					<li>Or here</li>
-					<li>Or here</li>
-					<li>Or here</li>
+				<h3>Summary</h3>
+				<ul id="long-list-2">
+					<li>GraphQL technology has been evolving over the last 2+ years and now has reached an inflection point</li>
+					<li>The Eco-system around the building production grade GraphQL systems is well established and growing</li>
+					<li>While smaller companies and startups have been taking the lead , larger enterprises are also showing a gradual shift</li>
+					<li>GraphQL currently remains driven more from the Frontend community , but we are seeing rapid growth in areas like content
+						management, DaaS</li>
+					<li>GraphQL could become a "Universal Query Language" for designing systems as well</li>
+					<li>While major GraphQL growth has been related to the NodeJS and JavaScript , we are seeing growth in other languages including
+						Java, PhP , Go etc. </li>
+					<li>GraphQL are likely to be adopted in greenfield (Cloud Native) solutions, as well as augment existing REST,Legacy based
+						systems </li>
 				</ul>
 			</section>
-
 			<section>
-				<h2>Fantastic Ordered List</h2>
-				<ol>
-					<li>One is smaller than...</li>
-					<li>Two is smaller than...</li>
-					<li>Three!</li>
-				</ol>
-			</section>
-
-			<section>
-				<h2>Tabular Tables</h2>
-				<table>
-					<thead>
-						<tr>
-							<th>Item</th>
-							<th>Value</th>
-							<th>Quantity</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Apples</td>
-							<td>$1</td>
-							<td>7</td>
-						</tr>
-						<tr>
-							<td>Lemonade</td>
-							<td>$2</td>
-							<td>18</td>
-						</tr>
-						<tr>
-							<td>Bread</td>
-							<td>$3</td>
-							<td>2</td>
-						</tr>
-					</tbody>
-				</table>
-			</section>
-
-			<section>
-				<h2>Clever Quotes</h2>
-				<p>
-					These guys come in two forms, inline:
-					<q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">The nice thing about standards is that there are so many to choose from</q> and block:
-				</p>
-				<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-					&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would reproduce
-					the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-				</blockquote>
-			</section>
-
-			<section>
-				<h2>Intergalactic Interconnections</h2>
-				<p>
-					You can link between slides internally,
-					<a href="#/2/3">like this</a>.
-				</p>
-			</section>
-
-			<section>
-				<h2>Speaker View</h2>
-				<p>There's a
-					<a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-				<p>Press the
-					<em>S</em> key to try it out.</p>
-
-				<aside class="notes">
-					Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes
-					window (hit 's' on your keyboard).
-				</aside>
-			</section>
-
-			<section>
-				<h2>Export to PDF</h2>
-				<p>Presentations can be
-					<a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-				<iframe data-src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0"
-				 marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-			</section>
-
-			<section>
-				<h2>Global State</h2>
-				<p>
-					Set
-					<code>data-state="something"</code> on a slide and
-					<code>"something"</code> will be added as a class to the document element when the slide is open. This lets you apply broader style changes,
-					like switching the page background.
-				</p>
-			</section>
-
-			<section data-state="customevent">
-				<h2>State Events</h2>
-				<p>
-					Additionally custom events can be triggered on a per slide basis by binding to the
-					<code>data-state</code> name.
-				</p>
-				<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-			</section>
-
-			<section>
-				<h2>Take a Moment</h2>
-				<p>
-					Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting
-					slides off the screen.
-				</p>
-			</section>
-
-			<section>
-				<h2>Much more</h2>
-				<ul>
-					<li>Right-to-left support</li>
+				<h3>References</h3>
+				<ul id="long-list-2">
 					<li>
-						<a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a>
+						<a href="https://github.com/apollographql/apollo-codegen" target="_blank">Apollo GraphQL code generator</a>
 					</li>
 					<li>
-						<a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a>
+						<a href="https://github.com/leangen/graphql-spqr" target="_blank">Java 8+ API for rapid development of GraphQL services</a>
 					</li>
 					<li>
-						<a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a>
+						<a href="https://github.com/spring-petclinic/spring-petclinic-graphql" target="_blank">PetClinic Example based on GraphQL</a>
 					</li>
 					<li>
-						<a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a>
+						<a href="https://graphql.org/learn/" target="_blank">Introduction to GraphQL</a>
+					</li>
+					<li>
+						<a href="https://www.howtographql.com/" target="_blank">The Fullstack Tutorial for GraphQL</a>
+					</li>
+					<li>
+						<a href="https://github.com/facebook/dataloader/" target="_blank">Data Loader</a>
 					</li>
 				</ul>
 			</section>
-
-			<section style="text-align: left;">
-				<h1>THE END</h1>
-				<p>
-					-
-					<a href="https://slides.com">Try the online editor</a>
-					<br> -
-					<a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-				</p>
+			<section>
+				<h2>Thank You !!</h2>
+				<img class="plain" data-src="assets/qa.png" alt="Q & A">
 			</section>
-
 		</div>
 
 	</div>
