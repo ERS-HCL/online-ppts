@@ -189,14 +189,124 @@
 					<h2>Common GraphQL Architecture Patterns</h2>
 				</section>
 				<section>
-					<h3>API Gateway</h3>
+					<h4>N+1 issue and the DataLoader</h4>
+					<div class="sidebyside">
+						<div id="one">
+							<ul class="long-list">
+								<li>Deeply nested queries can result in multiple queries/API calls for the same data</li>
+								<li>
+									<b>Solution : </b> use dataloader by Facebook</li>
+								<li>It handles this by
+									<ul>
+										<li>Caches similar requests</li>
+										<li>Debouncing similar requests and then batching then as one request</li>
+									</ul>
+								</li>
+								<li>`guys` query results in N+1 calls (N calls for each MALE person + 1 nested call)
+									<a href="https://spin.atomicobject.com/2017/05/15/optimize-graphql-queries/" target="_blank">MATT ROZEMAs Blog</a>
+								</li>
+							</ul>
+						</div>
+						<div id="two">
+							<pre style="width:400px;font-size:small"><code class="hljs" data-trim contenteditable>
+									const schema = `
+									type Person {
+									  name: String!
+									  age: Int
+									  gender: Gender
+									  height(unit: HeightUnit = METER) : Float
+									  bestFriend: Person
+									}
+									
+									type Query {
+									  guys: [Person]
+									  girls: [Person]
+									}
+									
+									enum Gender {
+									  MALE
+									  FEMALE
+									}
+									
+									enum HeightUnit {
+									  METER
+									  INCH
+									}
+									
+									schema {
+									  query: Query
+									}
+									`;
+									
+									const rootResolvers = {
+									  Query: {
+										guys(root, _, context) {
+										  return findBy('gender', 'MALE');
+										},
+									
+										girls(root, _, context) {
+										  return findBy('gender', 'FEMALE');
+										}
+									  },
+									  Person: {
+										name: ({ name }) => name.toUpperCase(),
+										height: ({ height }, { unit }) => 
+										unit === 'METER' ? height * 0.0254 : height,
+										bestFriend: ({ best_friend}) => 
+										findBy('name', best_friend)
+											.then(people => people[0]),
+									  },
+									};
+									
+									// This `findBy` method simulates a database query.
+									const findBy = (field, value) => {
+									  console.log(`finding person 
+									  		with ${field} === ${value}`);
+									  return Promise.resolve(
+										  people.filter(person => 
+										  		person[field] === value));
+									};
+									
+									const people = [
+									  {
+										name: 'George',
+										age: 17,
+										gender: 'MALE',
+										height: 72,
+										best_friend: 'Alexander',
+									  }, {
+										name: 'Jill',
+										age: 19,
+										gender: 'FEMALE',
+										height: 65,
+										best_friend: 'Alexander',
+									  }, {
+										name: 'Alexander',
+										age: 32,
+										gender: 'MALE',
+										height: 68,
+										best_friend: 'George',
+									  }, {
+										name: 'Dave',
+										age: 19,
+										gender: 'MALE',
+										height: 58,
+										best_friend: 'George',
+									  }
+									];
+															</code></pre>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h4>API Gateway</h4>
 					<div id="image">
 						<img class="plain" data-src="https://i.stack.imgur.com/BrnFy.png" alt="API Gateway">
 					</div>
 					<p id="imagetext">Can also act as a backend for frontend with UI specific transformations</p>
 				</section>
 				<section>
-					<h3>Serverless Architecture</h3>
+					<h4>Serverless Architecture</h4>
 					<div class="sidebyside">
 						<div id="one">
 							<ul class="long-list">
@@ -220,7 +330,7 @@
 					</div>
 				</section>
 				<section>
-					<h3>Serverless Architecture with AppSync</h3>
+					<h4>Serverless Architecture with AppSync</h4>
 					<div class="sidebyside">
 						<div id="one">
 							<ul id="long-list">
@@ -241,7 +351,7 @@
 					</div>
 				</section>
 				<section>
-					<h3>Schema Stiching at the API Gatway Layer</h3>
+					<h4>Schema Stiching at the API Gatway Layer</h4>
 					<div class="sidebyside">
 						<div id="one">
 							<ul id="long-list">
@@ -258,7 +368,7 @@
 					</div>
 				</section>
 				<section>
-					<h3>Gatsby - GraphQL based static site generator</h3>
+					<h4>Gatsby - GraphQL based static site generator</h4>
 					<div class="sidebyside">
 						<div id="one">
 							<ul id="long-list">
@@ -277,7 +387,7 @@
 					</div>
 				</section>
 				<section>
-					<h3>Headless CMS powered by GraphQL</h3>
+					<h4>Headless CMS powered by GraphQL</h4>
 					<div class="sidebyside">
 						<div id="one">
 							<ul id="long-list">
@@ -304,29 +414,37 @@
 					</div>
 				</section>
 				<section>
-					<h3>Neo4J GraphQL extension</h3>
+					<h4>PostGraphile (GraphQL for PostGres) & Neo4J GraphQL extension</h4>
 					<div class="sidebyside">
 						<div id="one">
 							<ul id="long-list">
 								<li>
-									<b>Cosmic.js:</b> is a CaaS based on GraphQL</li>
+									<b>PostGraphile: </b> Takes your PostGres database schema and turns it into GraphQL API without any extra work</li>
 								<li>
-									<b>GraphCMS:</b> The First Headless CMS Built Around GraphQL
+									<a href="https://www.youtube.com/watch?v=b3pwlCDy6vY" target="_blank">
+										<b>Watch this video for more .. </b>
+									</a>
+									Handles Pagination, Cursors, Table relationships , Custom server side functions
 								</li>
 								<li>
-									<b>Mozaik:</b> The next generation headless GraphQL CMS </li>
-								<li>
-									<b>Contentful:</b> Node.js library called cf-graphql that enables you to fetch data stored in Contentful using GraphQL.
+									It leverages graphile-build's
+									<b>look-ahead</b> features when resolving a GraphQL request
 								</li>
 								<li>
-									<b>WPGraphQL: </b>A free, open-source WordPress plugin that provides an extendable GraphQL schema and API for any WordPress
-									site.
+									<b>Result: </b>A single root level query, no matter how nested, is compiled into just one SQL query.
+								</li>
+								<li>
+									<b>Neo4j-graphql : </b>is a Neo4j server extension that allows you to turn GraphQL queries into Cypher and run them
+									against your graph data.</li>
+								<li>
+									It generates a single Cypher query for any arbitrary GraphQL request (Single DB request)
 								</li>
 							</ul>
 						</div>
 						<div id="two">
-							<img class="plain" data-src="https://www.nan-labs.com/wp-content/uploads/2018/04/headless-wordpress-rect-graphql-custom-infography-1.jpg"
-							 alt="Headless CMS">
+							<img class="plain" data-src="https://react-etc.net/files/2018-01/graphile3.png" alt="Graphile">
+							<img class="plain" data-src="https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20170524234854/graph-ql-graph-database-neo4j-integration.png"
+							 alt="Graphile">
 						</div>
 					</div>
 				</section>
@@ -336,23 +454,24 @@
 						<div id="one">
 							<ul id="long-list">
 								<li>
-									<b>Cosmic.js:</b> is a CaaS based on GraphQL</li>
+									Prisma is a performant open-source GraphQL ORM-like layer doing the heavy lifting in your GraphQL server.</li>
 								<li>
-									<b>GraphCMS:</b> The First Headless CMS Built Around GraphQL
+									Improves your database workflows and saves you from writing complex SQL queries or the intricacies of working with NoSQL
+									APIs.
 								</li>
 								<li>
-									<b>Mozaik:</b> The next generation headless GraphQL CMS </li>
+									Based on OpenCRUD and supports multiple databases via connectors. Currently supported MySQL</li>
 								<li>
-									<b>Contentful:</b> Node.js library called cf-graphql that enables you to fetch data stored in Contentful using GraphQL.
+									Acts as a data access layer in your backend architecture by connecting your API server to your databases
 								</li>
 								<li>
-									<b>WPGraphQL: </b>A free, open-source WordPress plugin that provides an extendable GraphQL schema and API for any WordPress
-									site.
+									Prisma servers run as standalone processes which allows for them to be scaled independently from your API server.
 								</li>
 							</ul>
 						</div>
 						<div id="two">
-							<img class="plain" data-src="https://www.nan-labs.com/wp-content/uploads/2018/04/headless-wordpress-rect-graphql-custom-infography-1.jpg"
+							<img class="plain" data-src="https://cdn.changelog.com/uploads/news_items/DdVj/large.png?v=63693702304" alt="Headless CMS">
+							<img class="plain" data-src="https://www.graph.cool/forum/uploads/default/original/2X/c/ce905bd0e3fd5d0fb559ad7c23840a81187562ee.png"
 							 alt="Headless CMS">
 						</div>
 					</div>
