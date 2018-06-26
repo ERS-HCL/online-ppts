@@ -53,7 +53,7 @@
 }
 
 #logo {
-  background-color: white;
+  background-color: transparent;
   overflow: hidden;
   margin: 5px;
   border: 2px dashed #ccc;
