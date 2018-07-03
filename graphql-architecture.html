@@ -198,6 +198,70 @@
 					<h2>Common GraphQL Architecture Patterns</h2>
 				</section>
 				<section>
+					<h4>Schema Directives for Re-usability</h4>
+					<div class="sidebyside">
+						<div id="one">
+							<ul id="long-list-2">
+								<li>
+									<b>Modify runtime behavior</b> of your schema</li>
+								<li>
+									<b>Code reduction and repitition</b> resolvers</li>
+								<li>
+									<b>Cleaner implementation</b> of complex models</li>
+								<li>
+									<b>Usecases:</b>
+									<ul>
+										<li>Role based permssions</li>
+										<li>Data Transformation</li>
+										<li>Internationalization</li>
+										<li>Attaching auto-resolver directly to the fields</li>
+										<li>Caching behavior</li>
+									</ul>
+								</li>
+								<li>Built In Directives:
+									<ul>
+										<li>
+											<b>@include(if: Boolean!)</b>
+											<i> include resolution if true</i>
+										</li>
+										<li>
+											<b>@skip(if Boolean!)</b>
+											<i> skip resolution if true</i>
+										</li>
+										<li>
+											<b>@deprecated(reason: String)</b>
+											<i> mark field as deprecated</i>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div id="two">
+							<pre style="width:500px;font-size:small"><code class="hljs" data-trim contenteditable>
+									const directiveQueries = `
+									query { Hero($episode: Episode, $withFriends: Boolean!) {
+										hero(episode: $episode) {
+										  name
+										  longName: String @deprecated(reason: "use name instead")
+										  hello: String @upper
+										  greeting: String @intl
+										  people: [Person] @rest(url: "/api/v1/people")
+										  collaborators: Boolean @auth(requires: ADMIN)
+										  published: Date @date(format: "mmmm d, yyyy")
+										  title: String @length(max: 50)
+										  friends @include(if: $withFriends) {
+											name
+										  }
+										}
+									  }
+									}`
+
+									</code>
+									</pre>
+						</div>
+					</div>
+				</section>
+				<section>
 					<h4>N+1 issue and the DataLoader</h4>
 					<div class="sidebyside">
 						<div id="one">
@@ -217,7 +281,7 @@
 							</ul>
 						</div>
 						<div id="two">
-							<pre style="width:400px;font-size:small"><code class="hljs" data-trim contenteditable>
+							<pre style="width:500px;font-size:small"><code class="hljs" data-trim contenteditable>
 									const schema = `
 									type Person {
 									  name: String!
